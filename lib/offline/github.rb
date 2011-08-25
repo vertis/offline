@@ -15,8 +15,9 @@ module Offline
       end
     end
 
-    def repositories(privacy=:all)
-      repos = self.class.get("/repos/show/#{@username}").parsed_response["repositories"]
+    def repositories(owner=nil, privacy=:all)
+      owner ||= @username
+      repos = self.class.get("/repos/show/#{owner}").parsed_response["repositories"]
       if privacy==:"private-only"
         repos = repos.select {|r| r["private"]==true } 
       end
