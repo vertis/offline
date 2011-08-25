@@ -9,6 +9,9 @@ module Offline
       @username = user
       if pass
         self.class.basic_auth user, pass
+        if self.class.get("/user/show").parsed_response["error"]=="not authorized"
+          raise Exception.new({"error"=>"not authorized"})
+        end
       end
     end
 
