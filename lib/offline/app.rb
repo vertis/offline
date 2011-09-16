@@ -20,7 +20,7 @@ module Offline
     method_option :username, :type => :string, :required => false, :aliases => '-u'
     method_option :password, :type => :string, :required => false, :aliases => '-p'
     method_option :output, :type => :string, :default => 'clone', :required => false, :aliases => '-o'
-    def mirror(owner)
+    def clone(owner)
       do_clone(owner, :clone, options)
     end
     
