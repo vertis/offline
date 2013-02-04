@@ -1,7 +1,7 @@
 module Offline
   class Github
     include HTTParty
-    base_uri 'http://github.com/api/v2/json'
+    base_uri 'ttps://api.github.com'
 
     attr_reader :username
 
@@ -9,7 +9,8 @@ module Offline
       @username = user
       if pass
         self.class.basic_auth user, pass
-        if self.class.get("/user/show").parsed_response["error"]=="not authorized"
+        response = self.class.get("/user/show").parsed_response
+        if response["error"]=="not authorized"
           raise Exception.new({"error"=>"not authorized"})
         end
       end
