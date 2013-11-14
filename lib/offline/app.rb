@@ -34,7 +34,7 @@ module Offline
         all_repos = reaper.repositories(owner, privacy).map {|r| r["name"] }
         repos =  all_repos & (options[:only] || all_repos) # TODO: Might be a better way of doing this
         repos = (repos) - Array(options[:without])
-
+        
         reaper.repositories(owner, privacy).each do |repo|
           next unless repos.include?(repo["name"])
           puts "#{clone_type}: #{repo["name"]}"
@@ -42,7 +42,7 @@ module Offline
           if target_directory.exist?
             run("cd #{target_directory} && git fetch")
           else
-            run("git clone #{"--mirror" if clone_type==:mirror} git@github.com:#{repo["owner"]}/#{repo["name"]}.git #{target_directory}")
+            run("git clone #{"--mirror" if clone_type==:mirror} git@github.com:#{repo['full_name']}.git #{target_directory}")
           end
           puts "" # blank line
         end

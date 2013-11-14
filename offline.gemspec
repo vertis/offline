@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Offline::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Luke Chadwick"]
-  s.email       = ["luke.a.chadwick@gmail.com"]
+  s.email       = ["me@vertis.io"]
   s.homepage    = "https://github.com/vertis/offline"
   s.summary     = %q{Tools for working with github}
   s.description = %q{Tools for working with github}
