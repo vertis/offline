@@ -11,7 +11,8 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/vertis/offline"
   s.summary     = %q{Tools for working with github}
   s.description = %q{Tools for working with github}
-
+  
+  s.required_ruby_version = '>= 1.9.3'
   s.rubyforge_project = "offline" # Not really
 
   s.add_dependency("httparty")
