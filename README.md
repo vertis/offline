@@ -20,7 +20,7 @@ Offline is an open source command line tool for mirroring github projects.
 
         $> offline mirror vertis --without flynn offline
 
-* your private repository
+* your private repositories
 
         $> offline mirror vertis --only mysecretproject --password password1
 
