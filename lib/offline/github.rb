@@ -16,11 +16,15 @@ module Offline
       end
     end
 
-    def repositories(owner=nil, privacy=:all)
-      owner ||= @username
-      res = self.class.get("/users/#{owner}/repos?per_page=100")
-      if res.code == 404
-        res = self.class.get("/orgs/#{owner}/repos?per_page=100")
+    def repositories(owner, privacy=:all)
+      res = nil
+      if owner == @username
+        res = self.class.get("/user/repos?per_page=100")
+      else
+        res = self.class.get("/users/#{owner}/repos?per_page=100")
+        if res.code == 404
+          res = self.class.get("/orgs/#{owner}/repos?per_page=100")
+        end
       end
       repos = res.parsed_response
       if privacy==:"private-only"
