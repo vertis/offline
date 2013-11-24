@@ -38,7 +38,9 @@ module Offline
         reaper.repositories(owner, privacy).each do |repo|
           next unless repos.include?(repo["name"])
           puts "#{clone_type}: #{repo["name"]}"
-          target_directory = Pathname.new("#{mirror_directory}/#{repo["name"]}.git")
+          path = "#{mirror_directory}/#{repo["name"]}"
+          path += ".git" if clone_type==:mirror
+          target_directory = Pathname.new(path)
           if target_directory.exist?
             run("cd #{target_directory} && git fetch")
           else
