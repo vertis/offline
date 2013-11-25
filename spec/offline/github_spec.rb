@@ -9,6 +9,11 @@ describe Offline::Github do
     it "should fail if I give the wrong password" do
       expect { Offline::Github.new('vertis', 'password') }.to raise_error
     end
+    
+    it "should accept an oauth token as the password" do
+      raise "Must set VALID_TEST_ACCESS_TOKEN environment variable" unless ENV['VALID_TEST_ACCESS_TOKEN']
+      expect { Offline::Github.new(ENV['VALID_TEST_ACCESS_TOKEN'], 'x-oauth-basic') }.not_to raise_error
+    end
   end
   
   describe "#repositories" do

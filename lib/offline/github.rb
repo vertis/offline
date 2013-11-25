@@ -2,6 +2,7 @@ module Offline
   class Github
     include HTTParty
     base_uri 'https://api.github.com'
+    headers 'User-Agent' => "Offline v#{Offline::VERSION} - https://github.com/vertis/offline"
 
     attr_reader :username
 
