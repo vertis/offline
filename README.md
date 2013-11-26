@@ -34,6 +34,13 @@ Offline has two modes of operation: mirror & clone.  All of Offline's commands c
 
         $> offline clone -u myuser -p password --private-only OTHERUSER
 
+## Development
+
+In order to run the specs you will need to provide a valid oauth token.
+```
+VALID_TEST_ACCESS_TOKEN=<your token> bundle exec rspec spec
+```
+
 ## Contributing
 
 Fork on GitHub, create a test & send a pull request.
