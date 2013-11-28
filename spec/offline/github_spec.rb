@@ -10,9 +10,13 @@ describe Offline::Github do
       expect { Offline::Github.new('vertis', 'password') }.to raise_error
     end
     
-    it "should accept an oauth token as the password" do
-      raise "Must set VALID_TEST_ACCESS_TOKEN environment variable" unless ENV['VALID_TEST_ACCESS_TOKEN']
-      expect { Offline::Github.new(ENV['VALID_TEST_ACCESS_TOKEN'], 'x-oauth-basic') }.not_to raise_error
+    unless ENV['TRAVIS']
+      it "should accept an oauth token as the password" do
+        raise "Must set VALID_TEST_ACCESS_TOKEN environment variable" unless ENV['VALID_TEST_ACCESS_TOKEN']
+        expect { Offline::Github.new(ENV['VALID_TEST_ACCESS_TOKEN'], 'x-oauth-basic') }.not_to raise_error
+      end
+    else
+      puts "Skipping oauth test because Travis CU doesn't have access to a valid token"
     end
   end
   
