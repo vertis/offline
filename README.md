@@ -41,6 +41,8 @@ In order to run the specs you will need to provide a valid oauth token.
 VALID_TEST_ACCESS_TOKEN=<your token> bundle exec rspec spec
 ```
 
+NB: Travis CI will not run the oauth test, because have no way of supplying a key and not compromising an account.
+
 ## Contributing
 
 Fork on GitHub, create a test & send a pull request.
