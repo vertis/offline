@@ -7,7 +7,7 @@ describe Offline::Github do
 
   context "authenticated user" do
     it "should fail if I give the wrong password" do
-      expect { Offline::Github.new('vertis', 'password') }.to raise_error
+      expect { Offline::Github.new("notarealaccount#{rand(9999)}", 'password') }.to raise_error
     end
     
     unless ENV['TRAVIS']
