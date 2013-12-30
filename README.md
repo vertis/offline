@@ -1,4 +1,5 @@
 # Offline
+[![Build Status](https://travis-ci.org/vertis/offline.png?branch=master)](https://travis-ci.org/vertis/offline)
 
 Offline is an open source command line tool for mirroring & cloning github projects.
 
