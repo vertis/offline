@@ -11,8 +11,8 @@ module Offline
       if pass
         self.class.basic_auth user, pass
         response = self.class.get("/user")
-        if response.code==401
-          raise Exception.new({"error"=>"not authorized"})
+        if response.code >= 400 && response.code < 500
+          raise Exception.new({ "code" => response.code, "error" => response.parsed_response["message"] })
         end
       end
     end
