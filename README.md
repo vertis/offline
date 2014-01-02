@@ -1,5 +1,10 @@
 # Offline
+[![Gem Version](https://badge.fury.io/rb/offline.png)](https://rubygems.org/gems/offline)
 [![Build Status](https://travis-ci.org/vertis/offline.png?branch=master)](https://travis-ci.org/vertis/offline)
+[![Dependency Status](https://gemnasium.com/vertis/offline.png?travis)](https://gemnasium.com/vertis/offline)
+[![Code Climate](https://codeclimate.com/github/vertis/offline.png)](https://codeclimate.com/github/vertis/offline)
+[![Coverage Status](https://coveralls.io/repos/vertis/offline/badge.png?branch=master)](https://coveralls.io/r/vertis/offline)
+
 
 Offline is an open source command line tool for mirroring & cloning github projects.
 
